@@ -14,8 +14,6 @@ spring:
             client-secret: ${CLIENT_SECRET}
             redirect-uri: ${REDIRECT_URI}
             provider: spotify
-            authentication-scheme: query
-            client-authentication-scheme: form
             scope: user-read-private, user-read-email, user-library-read
             authorization-grant-type: authorization_code
         provider:

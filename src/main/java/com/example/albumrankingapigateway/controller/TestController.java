@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/")
 public class TestController {
 
     @GetMapping("test")
-    public ResponseEntity<String> hello(@RegisteredOAuth2AuthorizedClient("spotify") OAuth2AuthorizedClient authorizedClient) {
+    public ResponseEntity<String> hello(@RegisteredOAuth2AuthorizedClient("spotify") OAuth2AuthorizedClient authorizedClient, Principal principal) {
         OAuth2AccessToken accessToken = authorizedClient.getAccessToken();
         System.out.println(accessToken.getTokenValue());
         return ResponseEntity.ok("hello from secure endpoint");
